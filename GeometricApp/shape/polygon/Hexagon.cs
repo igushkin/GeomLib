@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 
 /// <summary>
-/// Шестриугольник
+/// Шестиугольник
 /// </summary>
 public class Hexagon : SimplePolygon {
     public Hexagon(float width, float height) : base(scaleTo(createPath(), width, height)) { }
