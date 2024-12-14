@@ -5,6 +5,7 @@
     {
         [TestMethod]
         [DataRow(3, 5)]
+        [DataRow(-3, 5)]
         public void GetArea_ValidEllipse_ShouldReturnCorrectArea(float rx, float ry)
         {
             var ellipse = new Ellipse(rx, ry);
@@ -16,6 +17,7 @@
 
         [TestMethod]
         [DataRow(3)]
+        [DataRow(-3)]
         public void GetArea_ValidCircle_ShouldReturnCorrectArea(float r)
         {
             var circle = new Circle(r);

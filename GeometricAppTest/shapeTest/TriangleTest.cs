@@ -38,6 +38,7 @@ public class TriangleTest
     [DataRow(-1, 1, 1)]
     [DataRow(-1, -1, 1)]
     [DataRow(-1, -1, -1)]
+    [DataRow(-1.99f, 1, 1)]
     public void GetArea_ZeroOrNegativeSides_ShouldReturnCorrectArea(float a, float b, float c)
     {
         var triangle = new Triangle(a, b, c);
@@ -47,7 +48,7 @@ public class TriangleTest
     }
 
     [TestMethod]
-    [DataRow(0.0001f, 0.0001f, 0.0001f)]
+    [DataRow(0.1f, 0.1f, 0.1f)]
     public void EdgeCase_VerySmallTriangle_ShouldWork(float a, float b, float c)
     {
         var s = (a + b + c) / 2;

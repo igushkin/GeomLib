@@ -29,14 +29,15 @@ public class SimplePolygonTest
     /// Тест на корректную площадь многоугольника с отрицательными координатами.
     /// </summary>
     [TestMethod]
-    public void CalculateArea_NegativeCoordinates_ReturnsCorrectArea()
+    [DataRow(-2, 2)]
+    [DataRow(-2, -2)]
+    public void CalculateArea_NegativeCoordinates_ReturnsCorrectArea(float width, float height)
     {
-        PointF[] points = [new PointF(-3, -1), new PointF(1, -1), new PointF(1, 2), new PointF(-3, 2)];
-
+        PointF[] points = [new PointF(0, 0), new PointF(0, height), new PointF(width, height), new PointF(width, 0)];
         var polygon = new SimplePolygon(points);
+        var expectedArea = Math.Abs(width * height);
 
-        var expectedArea = 12.0; // Прямоугольник: ширина (4) * высота (3)
-        Assert.AreEqual(expectedArea, polygon.calculateArea(), Constants.epsilon); ;
+        Assert.AreEqual(expectedArea, polygon.calculateArea(), Constants.epsilon);
     }
 
     /// <summary>
@@ -49,15 +50,19 @@ public class SimplePolygonTest
     }
 
     /// <summary>
-    /// Тест на корректную площадь многоугольника с дробными координатами.
+    /// Тест на корректную площадь прямоугольника.
     /// </summary>
     [TestMethod]
-    public void CalculateArea_FractionalCoordinates_ReturnsCorrectArea()
+    [DataRow(2, 2)]
+    [DataRow(2.5f, 1.75f)]
+    [DataRow(2.5f, 0)]
+    [DataRow(0, 2.5f)]
+    public void CalculateArea_FractionalCoordinates_ReturnsCorrectArea(float width, float height)
     {
-        PointF[] points = [new PointF(0.5f, 0.5f), new PointF(3.5f, 0.5f), new PointF(3.5f, 2.5f), new PointF(0.5f, 2.5f)];
+        PointF[] points = [new PointF(0, 0), new PointF(0, height), new PointF(width, height), new PointF(width, 0)];
         var polygon = new SimplePolygon(points);
+        var expectedArea = width * height;
 
-        var expectedArea = 6.0; // Прямоугольник: ширина (3) * высота (2)
         Assert.AreEqual(expectedArea, polygon.calculateArea(), Constants.epsilon);
     }
 }
