@@ -128,8 +128,8 @@ public class SimplePolygon : IShape
     /// <returns>True, False</returns>
     private bool onSegment(PointF p1, PointF p2, PointF p3)
     {
-        if (Math.Abs(p3.X - p1.X) <= float.Epsilon) return Math.Min(p1.Y, p2.Y) < p3.Y && p3.Y < Math.Max(p1.Y, p2.Y);
-        else if (Math.Abs(p3.Y - p1.Y) <= float.Epsilon) return Math.Min(p1.X, p2.X) < p3.X && p3.X < Math.Max(p1.X, p2.X);
+        if (Math.Abs(p3.X - p1.X) <= Constants.epsilon) return Math.Min(p1.Y, p2.Y) < p3.Y && p3.Y < Math.Max(p1.Y, p2.Y);
+        else if (Math.Abs(p3.Y - p1.Y) <= Constants.epsilon) return Math.Min(p1.X, p2.X) < p3.X && p3.X < Math.Max(p1.X, p2.X);
         return false;
     }
 
