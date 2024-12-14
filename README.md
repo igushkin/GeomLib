@@ -29,3 +29,14 @@ foreach (var shape in shapes)
 var triangle = new Triangle(3, 4, 5);
 Console.WriteLine($"Является прямоугольным: {triangle.isRectangular()}"); // true
 ```
+
+# **2. MS SQL запрос**
+
+В базе данных MS SQL Server есть продукты и категории. Одному продукту может соответствовать много категорий, в одной категории может быть много продуктов. Напишите SQL запрос для выбора всех пар «Имя продукта – Имя категории». Если у продукта нет категорий, то его имя все равно должно выводиться.
+
+```sql
+SELECT product.name as product_name, product_category.name as product_category
+FROM product
+LEFT JOIN product_category ON product.category_id = product_category.id
+ORDER BY product_name;
+```
