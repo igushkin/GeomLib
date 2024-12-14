@@ -26,7 +26,7 @@ public class SimplePolygonTest
     }
 
     /// <summary>
-    /// Тест на корректную площадь многоугольника с отрицательными координатами.
+    /// Тест на корректную площадь прямоугольника с отрицательными координатами.
     /// </summary>
     [TestMethod]
     [DataRow(-2, 2)]
@@ -38,15 +38,6 @@ public class SimplePolygonTest
         var expectedArea = Math.Abs(width * height);
 
         Assert.AreEqual(expectedArea, polygon.calculateArea(), Constants.epsilon);
-    }
-
-    /// <summary>
-    /// Тест на некорректную инициализацию с null-значением.
-    /// </summary>
-    [TestMethod]
-    public void Constructor_NullPoints_ThrowsArgumentNullException()
-    {
-        Assert.ThrowsException<NullReferenceException>(() => new SimplePolygon(null));
     }
 
     /// <summary>

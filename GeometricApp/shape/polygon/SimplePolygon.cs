@@ -22,7 +22,7 @@ public class SimplePolygon : IShape
     public SimplePolygon(PointF[] points)
     {
         if (!isPolygonValid(points))
-            throw new ArgumentException("Кол-во вершин в многоугольнике должно быть >= 3 и стороны не должен пересекаться.");
+            throw new ArgumentException("Кол-во вершин в многоугольнике должно быть >= 3. Стороны не должны пересекаться.");
         this.points = points;
     }
 
