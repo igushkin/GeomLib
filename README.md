@@ -61,6 +61,7 @@ CREATE TABLE product_category (
 
 INSERT INTO category VALUES (1, 'Food');
 INSERT INTO category VALUES (2, 'Electronic devices');
+INSERT INTO category VALUES (3, 'Other');
 
 INSERT INTO product VALUES (1, 'Milk');
 INSERT INTO product VALUES (2, 'Pineapples');
@@ -70,6 +71,7 @@ INSERT INTO product VALUES (4, 'Squeegee');
 INSERT INTO product_category VALUES (1, 1);
 INSERT INTO product_category VALUES (2, 1);
 INSERT INTO product_category VALUES (3, 2);
+INSERT INTO product_category VALUES (3, 3);
 ```
 
 ![image](https://github.com/user-attachments/assets/fac9a3af-e18c-46ba-b8a9-2064441889a1)
@@ -83,6 +85,7 @@ FROM product_category AS pc
 	LEFT JOIN category AS c on c.id = pc.category_id
 	RIGHT JOIN product AS p ON p.id = pc.product_id;
 ```
-## **Результат**
+## **Результат запроса**
 
-![image](https://github.com/user-attachments/assets/1be468ed-36aa-43aa-a2d1-5063b8fe60c9)
+![image](https://github.com/user-attachments/assets/21539279-1f37-4f67-b98a-25a0eaecf47c)
+
